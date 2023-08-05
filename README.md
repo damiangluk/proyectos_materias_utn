@@ -9,7 +9,7 @@
 <p>
     Welcome to my software development project repository! Here, you'll find a collection of projects I've completed in groups or alone during my university studies in Information Systems Engineering.
 </p>
-<p>The utilized programming languages are the following: C#, C, SQL, Haskell, Wollok, Prolog.</p>
+<p>The utilized programming languages are the following: C#, C, SQL, Javascript, Haskell, Wollok, Prolog, HTML, CSS.</p>
 
 <!-- Visual Representation -->
 <p align="center">
@@ -31,7 +31,7 @@ Brief description of Project 3. Mention the technologies used and their impact.
 
 Throughout these projects, I've gained valuable insights in:
 
-- Technologies such as C#, C, SQL, Haskell, Wollok, Prolog.
+- Technologies such as C#, C, SQL, Javascript, Haskell, Wollok, Prolog, HTML, CSS.
 - Complex problem-solving.
 - Collaboration in development teams.
 - OOP, functional and logical paradigm

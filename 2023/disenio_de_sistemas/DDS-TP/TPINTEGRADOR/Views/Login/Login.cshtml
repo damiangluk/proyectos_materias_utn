@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNetCore.Mvc.Razor
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/js/loginController.js")"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet"/>
+    <link href="~/lib/bootstrap/dist/css/bootstrap-reboot.css" rel="stylesheet"/>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+}
+
+<body onload="disableButton()">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div>
+                    <h1>Inicio de sesión</h1>
+                    <form id="loginForm" action="/Login/Login" method="POST" onsubmit="return validateForm()">
+                        @if (ViewBag.ContraseniaSugerida?.Length != 0)
+                        {
+                            <div class="form-group">
+                                <label for="contrasenia"><b>Contraseña sugerida:</b></label>
+                                <span>@ViewBag.ContraseniaSugerida</span>
+                            </div>
+                        }
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre de usuario:</label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Introduce tu nombre de usuario">
+                            <span class="error" id="usernameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contrasenia">Contraseña:</label>
+                            <div class="input-group">
+                                <input type="password" id="password" name="password" class="form-control" placeholder="Introduce tu contraseña">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="changeType()">Mostrar</button>
+                                </div>
+                            </div>
+                            <span class="error" id="passwordError"></span>
+                        </div>
+
+                        <input type="submit" id="submit" value="Iniciar sesión" class="btn btn-primary">
+
+                        @if (!string.IsNullOrEmpty(@ViewBag.MensajeError))
+                        {
+                            <h6 id="error">@ViewBag.MensajeError</h6>
+                        }
+                    </form>
+                    <form action="/Login/LoginAuth" method="post">
+                        <!-- Campos y elementos del formulario -->
+                        <input type="submit" value="Iniciar sesión con Auth0" class="btn btn-primary" style="margin-top: 10px;">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Mvc.Razor
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/jstr/loginConoller.js")"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-reboot.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form action="/Login/LogoutAuth" method="post">
+        <!-- Campos y elementos del formulario -->
+        <input type="submit" value="Cerrar sesion Auth0" class="btn btn-primary" style="margin-top: 10px;">
+    </form>
+</div>
