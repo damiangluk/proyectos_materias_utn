@@ -35,10 +35,11 @@ The repository is organized with a folder for each project and within each one, 
 
 Throughout these projects, I've gained valuable insights in:
 
-- Technologies such as [Technology 1], [Technology 2].
+- Technologies such as C#, C, SQL, Haskell, Wollok, Prolog.
 - Complex problem-solving.
 - Collaboration in development teams.
-- [Other learnings...]
+- OOP, functional and logical paradigm
+- Design patterns
 
 ## 📬 Contact
 
