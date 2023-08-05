@@ -27,10 +27,6 @@ Brief description of Project 2. Share challenges overcome and lessons learned.
 ### [Project 3 Name](Link to the project)
 Brief description of Project 3. Mention the technologies used and their impact.
 
-## 📂 Repository Structure
-
-The repository is organized with a folder for each project and within each one, a folder with the statement and another one with the resolution.
-
 ## 🧠 Lessons Learned
 
 Throughout these projects, I've gained valuable insights in:

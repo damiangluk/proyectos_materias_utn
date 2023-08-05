@@ -1,0 +1,8 @@
+#!/bin/bash
+FILE=md_consola
+make $FILE
+if test -f "./$FILE"; then
+    ./$FILE /cfg/md_consola.config ./cfg/memoria_1.txt
+    ./$FILE /cfg/md_consola.config ./cfg/memoria_2.txt
+    ./$FILE /cfg/md_consola.config ./cfg/memoria_3.txt
+fi

@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Make",
+            "type": "shell",
+            "command": "make",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "md_consola Normal",
+            "type": "shell",
+            "command": "./exec",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "md_consola Valgrind",
+            "type": "shell",
+            "command": "./vexec",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "md_consola Helgrind",
+            "type": "shell",
+            "command": "./hexec",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}

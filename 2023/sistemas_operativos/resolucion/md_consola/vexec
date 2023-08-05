@@ -1,0 +1,8 @@
+#!/bin/bash
+FILE=md_consola
+make $FILE
+if test -f "./$FILE"; then
+    valgrind --tool=memcheck --leak-check=yes --show-possibly-lost=no --show-reachable=no --num-callers=20 -s ./$FILE /cfg/md_consola.config ./cfg/memoria_1.txt
+    valgrind --tool=memcheck --leak-check=yes --show-possibly-lost=no --show-reachable=no --num-callers=20 -s ./$FILE /cfg/md_consola.config ./cfg/memoria_2.txt
+    valgrind --tool=memcheck --leak-check=yes --show-possibly-lost=no --show-reachable=no --num-callers=20 -s ./$FILE /cfg/md_consola.config ./cfg/memoria_3.txt
+fi

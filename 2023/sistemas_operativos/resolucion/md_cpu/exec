@@ -1,0 +1,6 @@
+#!/bin/bash
+FILE=md_cpu
+make $FILE
+if test -f "./$FILE"; then
+    ./$FILE /cfg/md_cpu.config
+fi

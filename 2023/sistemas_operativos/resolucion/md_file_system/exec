@@ -1,0 +1,6 @@
+#!/bin/bash
+FILE=md_file_system
+make $FILE
+if test -f "./$FILE"; then
+    ./$FILE /cfg/md_file_system.config /cfg/superbloque.dat /cfg/bitmap.dat /cfg/bloques.dat
+fi
