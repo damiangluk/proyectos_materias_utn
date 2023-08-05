@@ -1,0 +1,111 @@
+import tp4.fabricaDeObjetosDePrueba.*
+import tp4.usuario.*
+import tp4.redSocial.*
+
+// Objeto que abstrae lógica auxiliar para las pruebas. No modificar.
+object validacionDeContenido {
+	method seComportaComo(contenido1, contenido2, usuarios, fecha){
+		return usuarios.all {usuario => 
+			contenido1.esVisible(usuario, fecha)
+				== contenido2.esVisible(usuario, fecha)
+		}
+	}
+}
+
+describe "Cambios en la configuración: público / privado" {
+	method initialize() {
+		fabrica.configurarContactos()
+	}
+	
+	test "Una publicación pública puede volverse privada y comportarse como tal" {
+		const contenido = fabrica.crearPublicacionPublica()
+		contenido.privacidad(privada)
+		
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearPublicacionPrivada(), 
+			fabrica.usuariosDePrueba(), fabrica.fechaLejanaAPublicacion()
+		))
+	}
+	
+	test "Una historia pública puede volverse privada y comportarse como tal" {
+		const contenido = fabrica.crearHistoriaPublica()
+		contenido.privacidad(privada)
+		
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearHistoriaPrivada(), 
+			fabrica.usuariosDePrueba(), fabrica.diaSiguienteAPublicacion()
+		))
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearHistoriaPrivada(), 
+			fabrica.usuariosDePrueba(), fabrica.diaSiguienteAPublicacion().plusDays(1)
+		))
+	}
+	
+	test "Una publicación privada puede volverse pública y comportarse como tal" {
+		const contenido = fabrica.crearPublicacionPrivada()
+		contenido.privacidad(publica)
+		
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearPublicacionPublica(), 
+			fabrica.usuariosDePrueba(), fabrica.fechaLejanaAPublicacion()
+		))
+	}
+	
+	test "Una historia privada puede volverse pública y comportarse como tal" {
+		const contenido = fabrica.crearHistoriaPrivada()
+		contenido.privacidad(publica)
+		
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearHistoriaPublica(), 
+			fabrica.usuariosDePrueba(), fabrica.diaSiguienteAPublicacion()
+		))
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearHistoriaPublica(), 
+			fabrica.usuariosDePrueba(), fabrica.diaSiguienteAPublicacion().plusDays(1)
+		))
+	}
+	
+}
+
+describe "Cambios en la configuración: contenido secreto" {	
+	const restringidos = #{new Usuario(nombre = "Lola"), new Usuario(nombre = "Pepe")}
+	const privacidadSecreta = new Secreta(usuariosRestringidos = restringidos)
+	method initialize() {
+		fabrica.configurarContactos()
+		restringidos.forEach {usuario => fabrica.creador().agregarContacto(usuario)}
+	}
+	test "Una historia pública puede cambiarse a secreta y comportarse como tal" {
+		const contenido = fabrica.crearHistoriaPublica()
+		contenido.privacidad(privacidadSecreta)		
+		
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearHistoriaSecreta(restringidos), 
+			fabrica.usuariosDePrueba(), fabrica.diaSiguienteAPublicacion()
+		))
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearHistoriaSecreta(restringidos), 
+			fabrica.usuariosDePrueba(), fabrica.diaSiguienteAPublicacion().plusDays(1)
+		))
+	}
+	
+	test "Una publicación privada puede cambiarse a secreta y comportarse como tal" {
+		const contenido = fabrica.crearPublicacionPrivada()	
+		contenido.privacidad(privacidadSecreta)	
+		
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearPublicacionSecreta(restringidos), 
+			fabrica.usuariosDePrueba(), fabrica.fechaLejanaAPublicacion()
+		))
+	}
+	
+	test "Una historia secreta puede cambiarse a privada y comportarse como tal" {
+		const contenido = fabrica.crearHistoriaSecreta(restringidos)
+		contenido.privacidad(privada)
+		
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearHistoriaPrivada(), 
+			fabrica.usuariosDePrueba(), fabrica.diaSiguienteAPublicacion()
+		))
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearHistoriaPrivada(), 
+			fabrica.usuariosDePrueba(), fabrica.diaSiguienteAPublicacion().plusDays(1)
+		))
+	}
+	test "Una publicación secreta puede cambiarse a pública y comportarse como tal" {
+		const contenido = fabrica.crearPublicacionSecreta(restringidos)
+		contenido.privacidad(publica)
+		
+		assert.that(validacionDeContenido.seComportaComo(contenido, fabrica.crearPublicacionPublica(), 
+			fabrica.usuariosDePrueba(), fabrica.fechaLejanaAPublicacion()
+		))
+	}
+}

@@ -1,0 +1,97 @@
+precio(asado,550).
+precio(lomitoDeLaCasa,450).
+precio(hamburguesa,350).
+precio(papasFritas,220).
+precio(ensalada,190).
+precio(pizzetas, 250).
+precio(polloALaPlancha, 320).
+precio(tostadoVeggie, 150).
+precio(tortilla, 280).
+
+tieneCarne(asado).
+tieneCarne(hamburguesa).
+tieneCarne(lomitoDeLaCasa).
+tieneCarne(polloALaPlancha).
+
+nacNpop(Comida) :- precio(Comida, Precio), Precio =< 300.
+
+% leGusta/2
+leGusta(juan, asado).
+leGusta(gabriel, asado).
+leGusta(gabriel, Comida) :- nacNpop(Comida).
+leGusta(juan, tostadoVeggie).
+leGusta(soledad, Comida) :- leGusta(gabriel, Comida), not(leGusta(juan, Comida)).
+leGusta(tomas, Comida) :- tieneCarne(Comida).
+leGusta(celeste, Comida) :- precio(Comida, _).
+
+% puedePedir/2
+puedePedir(Persona, Comida) :- leGusta(Persona, Comida), precio(Comida, Precio), dispuestoAGastar(Persona, Presupuesto), Precio =< Presupuesto.
+
+precioDe2Comidas(Comida1, Comida2, Total) :- precio(Comida1,PrecioA), precio(Comida2,PrecioB), Total is PrecioA + PrecioB.
+
+dispuestoAGastar(juan, 500).
+dispuestoAGastar(celeste, 400).
+dispuestoAGastar(tomas, Presupuesto) :- precio(hamburguesa, Presupuesto).
+dispuestoAGastar(soledad, Presupuesto) :- dispuestoAGastar(tomas, PresTomas), Presupuesto is PresTomas*2.
+dispuestoAGastar(gabriel, Presupuesto) :- dispuestoAGastar(carolina, PresCarolina), Presupuesto is PresCarolina/2.
+dispuestoAGastar(carolina, Presupuesto) :- precioDe2Comidas(asado, papasFritas, Presupuesto).
+
+% --------------------------------
+% TESTS - NO TOCAR
+% --------------------------------
+
+:- begin_tests(tests_tp1_leGusta).
+
+test(genteALaQueLeGustaElAsado, set(Persona == [juan, gabriel, celeste, tomas])):-
+        leGusta(Persona, asado).
+
+test(gustosDeJuan, set(Comida == [asado, tostadoVeggie])):-
+        leGusta(juan, Comida).
+
+test(gustosDeGabriel, set(Comida == [asado, papasFritas, ensalada, pizzetas, tostadoVeggie, tortilla])):-
+        leGusta(gabriel, Comida).
+
+test(gustosDeSoledad, set(Comida == [papasFritas, ensalada, pizzetas, tortilla])):-
+        leGusta(soledad, Comida).
+
+test(gustosDeTomas, set(Comida == [asado, hamburguesa, lomitoDeLaCasa, polloALaPlancha])):-
+        leGusta(tomas, Comida).
+
+test(gustosDeCeleste, set(Comida == [asado, lomitoDeLaCasa, hamburguesa, papasFritas, ensalada, pizzetas, polloALaPlancha, tostadoVeggie, tortilla])):-
+        leGusta(celeste, Comida).
+
+test(aCarolinaNoLeGustaNada, fail):-
+        leGusta(carolina, _).
+
+:- end_tests(tests_tp1_leGusta).
+
+:- begin_tests(tests_tp1_puedePedir).
+
+test(genteQuePuedePedirHamburguesa, set(Persona == [celeste, tomas])):-
+        puedePedir(Persona, hamburguesa).
+
+test(nadiePuedePedirAsado, fail):-
+        puedePedir(_, asado).
+
+test(aCelesteNoLeAlcanzaParaPedirElLomito, fail):-
+        puedePedir(celeste, lomitoDeLaCasa).
+
+test(aCelesteLeAlcanzaParaPedirPollo, nondet):-
+        puedePedir(celeste, polloALaPlancha).
+
+test(comidasQuePuedePedirJuan, set(Comida == [tostadoVeggie])):-
+        puedePedir(juan, Comida).
+
+test(comidasQuePuedePedirSoledad, set(Comida == [papasFritas, ensalada, pizzetas, tortilla])):-
+        puedePedir(soledad, Comida).
+
+test(comidasQuePuedePedirTomas, set(Comida == [hamburguesa, polloALaPlancha])):-
+        puedePedir(tomas, Comida).
+
+test(comidasQuePuedePedirGabriel, set(Comida == [papasFritas, ensalada, pizzetas, tostadoVeggie, tortilla])):-
+        puedePedir(gabriel, Comida).
+
+test(carolinaNoPuedePedirNadaPorqueNoLeGustaLoQueHay, fail):-
+        puedePedir(carolina, _).
+
+:- end_tests(tests_tp1_puedePedir).
