@@ -1,0 +1,1 @@
+pa bar . correr 1 @ pa . correr %  pa 2 @ pa . opa (papa) (correr 1 @ pa .)
