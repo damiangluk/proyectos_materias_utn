@@ -1,6 +1,6 @@
 <!-- Last Updated Note -->
 <p align="right">
-    <em>Last updated: August 4, 2023</em>
+    <em>Last updated: August 8, 2023</em>
 </p>
 
 <!-- Header -->
@@ -18,14 +18,15 @@
 
 ## 🚀 Projects
 
-### [Project 1 Name](Link to the project)
-Brief description of Project 1. Highlight key features and achievements.
+### <a href="https://github.com/damiangluk/proyectos_materias_utn/tree/main/2023/sistemas_operativos">Operating system with C on Linux<a>
+The project consists of a system distributed in 5 modules connected by sockets to simulate the execution of processes of a real operating system.
 
-### [Project 2 Name](Link to the project)
-Brief description of Project 2. Share challenges overcome and lessons learned.
+### <a href="https://github.com/damiangluk/proyectos_materias_utn/tree/main/2023/gestion_de_datos">Database modeling and creation with SQL/T-SQL<a>
+Simulation of data migration of an information system where data was normalized, business ideas were modeled, and a database was implemented.
+Implementation of a star model, with its procedures and views, that can be used to obtain management indicators, scenario analysis and projection for decision-making.
 
-### [Project 3 Name](Link to the project)
-Brief description of Project 3. Mention the technologies used and their impact.
+### <a href="https://github.com/damiangluk/proyectos_materias_utn/tree/main/2022/paradigmas_de_programacion">OOP, Functional and Logical paradigm<a>
+Development of the different programming paradigms through exercises and practical implementations, where I gained a deeper understanding of how each paradigm approaches problem-solving and software design.
 
 ## 🧠 Lessons Learned
 
@@ -34,8 +35,9 @@ Throughout these projects, I've gained valuable insights in:
 - Technologies such as C#, C, SQL, Javascript, Haskell, Wollok, Prolog, HTML, CSS.
 - Complex problem-solving.
 - Collaboration in development teams.
-- OOP, functional and logical paradigm
-- Design patterns
+- OOP including polymorphism, inheritance, encapsulation, composition and abstraction.
+- functional and logical paradigm.
+- Design patterns such as Singleton, Adapter, Strategy, Observer and State.
 
 ## 📬 Contact
 
