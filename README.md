@@ -1,6 +1,6 @@
 <!-- Last Updated Note -->
 <p align="right">
-    <em>Last updated: August 8, 2023</em>
+    <em>Last updated: August 9, 2023</em>
 </p>
 
 <!-- Header -->
@@ -38,6 +38,7 @@ Throughout these projects, I've gained valuable insights in:
 - OOP including polymorphism, inheritance, encapsulation, composition and abstraction.
 - functional and logical paradigm.
 - Design patterns such as Singleton, Adapter, Strategy, Observer and State.
+- Unit tests
 
 ## 📬 Contact
 
