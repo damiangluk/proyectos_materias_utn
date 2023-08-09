@@ -36,7 +36,7 @@ Throughout these projects, I've gained valuable insights in:
 - Complex problem-solving.
 - Collaboration in development teams.
 - OOP including polymorphism, inheritance, encapsulation, composition and abstraction.
-- functional and logical paradigm.
+- Functional and logical paradigm.
 - Design patterns such as Singleton, Adapter, Strategy, Observer and State.
 - Unit tests
 
