@@ -45,3 +45,11 @@ Throughout these projects, I've gained valuable insights in:
 If you have any questions or simply want to connect, feel free to reach out to me via damigluk@gmail.com.
 
 Thanks for exploring my project portfolio! 🌟
+
+<a href="https://www.linkedin.com/in/chabela-maría-lamas-0801b828b">
+  <img src="https://www.linkedin.com/favicon.ico" width="20" height="20" alt="LinkedIn Icon">
+</a>
+<a href="mailto:lamas.chabela@gmail.com">
+  <img src="https://cdn-icons-png.flaticon.com/256/281/281769.png" width="20" height="20" alt="Email Icon">
+
+</a>
