@@ -1,6 +1,6 @@
 <!-- Last Updated Note -->
 <p align="right">
-    <em>Last updated: August 9, 2023</em>
+    <em>Last updated: June 4, 2024</em>
 </p>
 
 <!-- Header -->
@@ -13,7 +13,7 @@
 
 <!-- Visual Representation -->
 <p align="center">
-    <img src="https://media.licdn.com/dms/image/C4E16AQFIcY1M-woYyw/profile-displaybackgroundimage-shrink_350_1400/0/1654784927697?e=1707350400&v=beta&t=IN-GnCGNaLFetKNC6aLLk337JTbWBJhawNJ15yz945E" alt="Software Development Projects">
+    <img src="https://raw.githubusercontent.com/damiangluk/proyectos_materias_utn/main/image.png" alt="Software Development Projects">
 </p>
 
 ## 🚀 Projects
